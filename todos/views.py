@@ -1,20 +1,22 @@
 from django.urls import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
-from .models import Todo
+from .models import Produto
 
-class TodoListView(ListView):
-    model = Todo
+class ProdutoListView(ListView):
+    model = Produto
+    template_name = 'todos/produto_list.html'
+    context_object_name = 'produto_list'  # Certifique-se de que o nome do contexto está correto
 
-class TodoCreateView(CreateView):
-    model = Todo
+class ProdutoCreateView(CreateView):
+    model = Produto
     fields = ['nome','descricao','preco','categoria']
-    success_url = reverse_lazy('todo_list')
+    success_url = reverse_lazy('produto_list')
 
-class TodoUpdateView(UpdateView):
-    model = Todo
+class ProdutoUpdateView(UpdateView):
+    model = Produto
     fields = ['nome','descricao','preco','categoria']
-    success_url = reverse_lazy('todo_list')
+    success_url = reverse_lazy('produto_list')
 
-class TodoDeleteView(DeleteView):
-    model = Todo
-    success_url = reverse_lazy('todo_list')
+class ProdutoDeleteView(DeleteView):
+    model = Produto
+    success_url = reverse_lazy('produto_list')

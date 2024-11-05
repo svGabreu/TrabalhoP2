@@ -1,11 +1,11 @@
 from django.contrib import admin
 from django.urls import path
-from todos.views import TodoListView, TodoCreateView, TodoUpdateView, TodoDeleteView
+from todos.views import ProdutoListView, ProdutoCreateView, ProdutoUpdateView, ProdutoDeleteView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TodoListView.as_view(), name='todo_list'),
-    path('create/', TodoCreateView.as_view(), name='todo_create'),
-    path('update/<int:pk>/', TodoUpdateView.as_view(), name='todo_update'),
-    path('delete/<int:pk>/', TodoDeleteView.as_view(), name='todo_delete')
-    ]
+    path('', ProdutoListView.as_view(), name='produto_list'),
+    path('create/', ProdutoCreateView.as_view(), name='produto_create'),
+    path('update/<int:pk>/', ProdutoUpdateView.as_view(), name='produto_update'),
+    path('delete/<int:pk>/', ProdutoDeleteView.as_view(), name='produto_delete'),
+]
